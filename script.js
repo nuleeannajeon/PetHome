@@ -1,3 +1,4 @@
+// PetFinderAPI   ** HELP NEEDED **
 var pf = new petfinder.Client({
     apiKey: "cb58oTV1HT1nHEGfDGeG9cJSxuW9OYdr4tFtullZNR8RPZDPcd", 
     secret: "XgbRAAfgLmZGVKZE0Gj1GtDZMmqu39LFlNLdBrtA"});
@@ -11,42 +12,9 @@ pf.animal.search({type: "Dog"})
     displayDog(dogData);          
     });
 
-// function findDog(dogData) {
-//     var box = $("#dogBox");
-//     box.empty();
-
-//     for (var i = 0; i < dogData.data.animals.length; i++) {
-
-//         var dogInfoBox = $('<div class="col-sm-12 col-md-4">');
-//         var dogImg = $('<img>')
-//         var dogName = $('<h6>');
-//         var dogBreeds = $('<h6>');
-//         var dogColor = $('<h6>');
-//         var dogAge = $('<h6>');
-//         var dogDesc = $('<h6>');
-
-//         var noImg ="https://www.mcctoronto.com/wp-content/uploads/images/no-profile-picture-icon-15.png";
-//         var imgURL = dogData.data.animals[i].photos[0];
-        
-//         if (imgURL) {
-//             dogImg.attr("src", imgURL.medium)
-//         } else {
-//             dogImg.attr("src", noImg);
-//         }
-
-//         dogInfoBox.css("padding", "5px");
-//         dogName.text("Name: " + dogData.data.animals[i].name);
-//         dogBreeds.text("Breed: " + dogData.data.animals[i].breeds.primary);
-//         dogColor.text("Colors: " + dogData.data.animals[i].colors.primary);
-//         dogAge.text("Age: " + dogData.data.animals[i].age);
-//         dogDesc.text("Description: " + dogData.data.animals[i].description);
-//         dogInfoBox.append(dogImg, dogName, dogBreeds, dogColor, dogAge, dogDesc);
-//         box.append(dogInfoBox);
-        
-//     }
-// }
-
+// Displays/Appends PetFinderAPI Results
 function displayDog(dogData) {
+
     for (var i = 0; i < dogData.data.animals.length; i++) {
         var noImg ="https://www.mcctoronto.com/wp-content/uploads/images/no-profile-picture-icon-15.png";
        
@@ -55,21 +23,21 @@ function displayDog(dogData) {
         <div class="col-sm-12 col-md-4">
             <div class="card">
                 <img src="${ dogData.data.animals[i].photos.length>0 ? dogData.data.animals[i].photos[0].medium : noImg }" />
-                <br>Name: ${dogData.data.animals[i].name}
+                <br><strong>Name: ${dogData.data.animals[i].name}</strong>
                 <br>Breed: ${dogData.data.animals[i].breeds.primary}
                 <br>Colors: ${dogData.data.animals[i].colors.primary}
                 <br>Age: ${dogData.data.animals[i].age}
+                <br>Gender: ${dogData.data.animals[i].gender}
                 <br>Description: ${dogData.data.animals[i].description}
+                <br>email: ${dogData.data.animals[i].contact.email} <br>phone: ${dogData.data.animals[i].contact.phone}
             </div>
         </div>
         `
-  }
+    }
 
 }
 
-
-
-// The DogAPI
+// TheDogAPI Request
 var dogfact
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
@@ -83,35 +51,43 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("https://api.thedogapi.com/v1/breeds?name=Affenpinscher", requestOptions)
+fetch("https://api.thedogapi.com/v1/breeds", requestOptions)
   .then(response => response.json())
-  .then(function(response){
-    dogfact = response;
-    console.log(dogfact)
-    })
+  .then(function (result){
+      dogfact = result;
+      console.log(dogfact);
+      displayDogFact(dogfact);
+  })
   .catch(error => console.log('error', error));
 
-
+// Display TheDogAPI Search
 function displayDogFact(dogfact){
-    var inputName = document.querySelector("#searchInput").value
-    var inputNameLower = inputName.toLowerCase(inputName)
+    var inputName = document.querySelector("#searchDogFacts").value;
+    var lowerinputName = inputName.toLowerCase();
+    
+    document.querySelector('#dogFact').innerHTML = "";
 
     for (var i=0; i < dogfact.length ; i++){
-        var dogName = dogfact[i].name
-        var lowerDogName = dogName.toLowerCase(dogName)
-        
-        if (inputNameLower == lowerDogName) {
+        var dogName= dogfact[i].name;
+        var lowerdogName = dogName.toLowerCase();
+
+        if (lowerinputName == lowerdogName) {
             document.querySelector('#dogFact').innerHTML +=
             `
             <div class="col-md-6">
                 <div class="card">
-                    <br>Name: ${dogfact[i].name}
-                    <br>Origin: ${dogfact[i].origin}
-                    <br>Life-span: ${dogfact[i].life_span}
-                    <br>Bred-For: ${dogfact[i].breeds_for}
+                
+                    ${dogfact[i].name ? `<br>Name: ${dogfact[i].name}` : ``}
+                    ${dogfact[i].origin ? `<br>Origin: ${dogfact[i].origin}` : ``}
+                    ${dogfact[i].life_span ? `<br>Life-Span: ${dogfact[i].life_span}` : ``}
+                    ${dogfact[i].height.metric ? `<br>Height: ${dogfact[i].height.metric}cm` : ``}
+                    ${dogfact[i].weight.metric ? `<br>Weight: ${dogfact[i].weight.metric}kg` : ``}
+                    ${dogfact[i].temperament ? `<br>Temperament: ${dogfact[i].temperament}` : ``}
+                    ${dogfact[i].breeds_for ? `<br>Breed-For: ${dogfact[i].breeds_for}` : ``}
+                
                 </div>
             </div>
-            `
+            `   
         }
     }
 }

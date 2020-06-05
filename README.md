@@ -1,2 +1,2 @@
 # pet-adoption
-This is the team c0dehot first project creating a mobile first side.
+This is team c0dehot's first project creating a mobile-first website.
