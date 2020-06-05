@@ -1,31 +1,7 @@
-<<<<<<< HEAD
-// var petData;
-
-// PetFinder API
-=======
->>>>>>> master
 var pf = new petfinder.Client({
     apiKey: "cb58oTV1HT1nHEGfDGeG9cJSxuW9OYdr4tFtullZNR8RPZDPcd", 
     secret: "XgbRAAfgLmZGVKZE0Gj1GtDZMmqu39LFlNLdBrtA"});
 
-<<<<<<< HEAD
-// pf.animal.search()
-//     .then(function (response) {
-//         // Do something with `response.data.animals`
-//         petData = response
-//     })
-//     .catch(function (error) {
-//         // Handle the error
-//         console.log(error)
-//     });
-
-var dogData
-
-pf.animal.search({type: "Dog"})
-  .then(resp => {
-    dogData = resp
-});
-=======
 var dogData
 
 pf.animal.search({type: "Dog"})
@@ -90,4 +66,52 @@ function displayDog(dogData) {
   }
 
 }
->>>>>>> master
+
+
+
+// The DogAPI
+var dogfact
+var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+myHeaders.append("x-api-key", "9bb94a77-e337-4cde-89fb-4a1f6079701e")
+
+var formdata = new FormData();
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
+
+fetch("https://api.thedogapi.com/v1/breeds?name=Affenpinscher", requestOptions)
+  .then(response => response.json())
+  .then(function(response){
+    dogfact = response;
+    console.log(dogfact)
+    })
+  .catch(error => console.log('error', error));
+
+
+function displayDogFact(dogfact){
+    var inputName = document.querySelector("#searchInput").value
+    var inputNameLower = inputName.toLowerCase(inputName)
+
+    for (var i=0; i < dogfact.length ; i++){
+        var dogName = dogfact[i].name
+        var lowerDogName = dogName.toLowerCase(dogName)
+        
+        if (inputNameLower == lowerDogName) {
+            document.querySelector('#dogFact').innerHTML +=
+            `
+            <div class="col-md-6">
+                <div class="card">
+                    <br>Name: ${dogfact[i].name}
+                    <br>Origin: ${dogfact[i].origin}
+                    <br>Life-span: ${dogfact[i].life_span}
+                    <br>Bred-For: ${dogfact[i].breeds_for}
+                </div>
+            </div>
+            `
+        }
+    }
+}
