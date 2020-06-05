@@ -1,5 +1,5 @@
 # Pet Home
-This is the team c0dehot's first project creating a mobile first side.
+This is the team c0dehot's first project creating a mobile first site.
 
 Project Title : PetHome
 
