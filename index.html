@@ -8,6 +8,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="style.css" media="screen"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/@petfinder/petfinder-js/dist/petfinder.min.js"></script>
 
 </head>
 <body>
@@ -48,22 +50,27 @@
               <h1 class="display-4">PetHome</h1>
               <p class="lead">PetHome was designed to allow people from all over the world to connect with loveable pets that they can adopt.</p>
               <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Find Your Pet Now" aria-label="Recipient's username" aria-describedby="button-addon2" style="max-width:400px;">
+                <input id="searchInput" type="text" class="form-control" placeholder="Find Your Pet Now" aria-label="Recipient's username" aria-describedby="button-addon2">
                 <div class="input-group-append">
-                  <button class="btn" style="background-color: #ff9933;" type="button" id="button-addon2">Search</button>
+                  <button class="btn" style="background-color: #ff9933;" type="button" id="searchBtn">Search</button>
                 </div>
               </div>
             </div>  
           </div>
 
-    </header>
+          <div class="container text-center">
+            <div class="row" id="dogBox">
+            </div>
+          </div>
 
+    </header>
 
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<<<<<<< HEAD
     <!-- PetFinder -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/@petfinder/petfinder-js/dist/petfinder.min.js"></script>
@@ -73,3 +80,8 @@
 </html>
 
 
+=======
+    <script src="script.js"></script>
+</body>
+</html>
+>>>>>>> master
