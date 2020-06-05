@@ -49,15 +49,6 @@ pf.animal.search({type: "Dog"})
 function displayDog(dogData) {
     for (var i = 0; i < dogData.data.animals.length; i++) {
         var noImg ="https://www.mcctoronto.com/wp-content/uploads/images/no-profile-picture-icon-15.png";
-
-        // var imgURL = dogData.data.animals[i].photos[0];
-
-        // if (imgURL){
-        //     $('<img>').attr('src', imgURL);
-        // }
-        // else {
-        //     $('<img>').attr('src', noImg);
-        // }
        
         document.querySelector('#dogBox').innerHTML += 
         `
@@ -75,4 +66,3 @@ function displayDog(dogData) {
   }
 
 }
-
