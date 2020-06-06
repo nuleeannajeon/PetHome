@@ -62,7 +62,6 @@ fetch("https://api.thedogapi.com/v1/breeds", requestOptions)
   .catch(error => console.log('error', error));
 
 
-
 // Display TheDogAPI Search
 function displayDogFact(dogfact){
     var inputName = document.querySelector("#searchDogFacts").value;
@@ -74,12 +73,17 @@ function displayDogFact(dogfact){
         var dogName= dogfact[i].name;
         var lowerdogName = dogName.toLowerCase();
 
+
         if (lowerinputName == lowerdogName) {
+            var picNum = dogfact[i].id;
+            searchPicture(picNum)
             document.querySelector('#dogFact').innerHTML +=
             `
             <div class="row">
-                <div class="col-sm-12 col-md-6"> image </div>
                 <div class="col-sm-12 col-md-6">
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <img id="dogFactsPic" src=""/>
 
                     ${dogfact[i].name ? `<strong>${dogfact[i].name}</strong>` : ``}
                     ${dogfact[i].breed_group ? `<br>Breed-Group: ${dogfact[i].breed_group}` : ``}
@@ -94,4 +98,16 @@ function displayDogFact(dogfact){
             `   
         }
     }
+}
+
+async function searchPicture(picNum){
+    console.log(`We are searching for your picture`)
+    await fetch(`https://api.thedogapi.com/v1/images/search?breed_ids=${picNum}`, requestOptions)
+    .then(response => response.json())
+    .then(function (result){
+    dogPicture = result
+    $("#dogFactsPic").attr("src", dogPicture[0].url)
+    console.log(`We found a picture !`);
+    })
+    .catch(error => console.log('error', error));
 }
