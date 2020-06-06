@@ -61,6 +61,8 @@ fetch("https://api.thedogapi.com/v1/breeds", requestOptions)
   })
   .catch(error => console.log('error', error));
 
+
+
 // Display TheDogAPI Search
 function displayDogFact(dogfact){
     var inputName = document.querySelector("#searchDogFacts").value;
@@ -75,17 +77,18 @@ function displayDogFact(dogfact){
         if (lowerinputName == lowerdogName) {
             document.querySelector('#dogFact').innerHTML +=
             `
-            <div class="col">
-                <div class="card">
-                
-                    ${dogfact[i].name ? `<br>Name: ${dogfact[i].name}` : ``}
+            <div class="row">
+                <div class="col-sm-12 col-md-6"> image </div>
+                <div class="col-sm-12 col-md-6">
+
+                    ${dogfact[i].name ? `<strong>${dogfact[i].name}</strong>` : ``}
+                    ${dogfact[i].breed_group ? `<br>Breed-Group: ${dogfact[i].breed_group}` : ``}
                     ${dogfact[i].origin ? `<br>Origin: ${dogfact[i].origin}` : ``}
                     ${dogfact[i].life_span ? `<br>Life-Span: ${dogfact[i].life_span}` : ``}
                     ${dogfact[i].height.metric ? `<br>Height: ${dogfact[i].height.metric}cm` : ``}
                     ${dogfact[i].weight.metric ? `<br>Weight: ${dogfact[i].weight.metric}kg` : ``}
                     ${dogfact[i].temperament ? `<br>Temperament: ${dogfact[i].temperament}` : ``}
-                    ${dogfact[i].breeds_for ? `<br>Breed-For: ${dogfact[i].breeds_for}` : ``}
-                
+                    ${dogfact[i].bred_for ? `<br>Breed-For: ${dogfact[i].bred_for}` : ``}
                 </div>
             </div>
             `   
