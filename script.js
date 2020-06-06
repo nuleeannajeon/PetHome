@@ -16,13 +16,13 @@ pf.animal.search({type: "Dog"})
 function displayDog(dogData) {
 
     for (var i = 0; i < dogData.data.animals.length; i++) {
-        var noImg ="https://www.mcctoronto.com/wp-content/uploads/images/no-profile-picture-icon-15.png";
+        var noImg ="https://www.stma.org/wp-content/uploads/2017/10/no-image-icon.png";
        
         document.querySelector('#dogBox').innerHTML += 
         `
         <div class="col-sm-12 col-md-4">
             <div class="card">
-                <img src="${ dogData.data.animals[i].photos.length>0 ? dogData.data.animals[i].photos[0].medium : noImg }" />
+                <img src="${ dogData.data.animals[i].photos.length>0 ? dogData.data.animals[i].photos[0].medium : noImg }" style="height: 400px; width: 100%;"/>
                 <br><strong>Name: ${dogData.data.animals[i].name}</strong>
                 <br>Breed: ${dogData.data.animals[i].breeds.primary}
                 <br>Colors: ${dogData.data.animals[i].colors.primary}
@@ -75,7 +75,7 @@ function displayDogFact(dogfact){
         if (lowerinputName == lowerdogName) {
             document.querySelector('#dogFact').innerHTML +=
             `
-            <div class="col-md-6">
+            <div class="col">
                 <div class="card">
                 
                     ${dogfact[i].name ? `<br>Name: ${dogfact[i].name}` : ``}

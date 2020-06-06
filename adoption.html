@@ -3,33 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 1 : PetHome</title>
+    <title>Dog Fact</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="style.css" media="screen"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
     
 </head>
 <body>
     <header>
         <!-- Our NavBar -->
         <nav class="navbar navbar-expand-md navbar-light text-light" style="background-color: #ff9933">
-            <a class="navbar-brand" href="#">PetHome</a>
+            <a class="navbar-brand" href="./main.html"><i class="fas fa-home"></i>PetHome</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-          
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="dogfacts.html">Dog Facts</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
+        </nav>
           <div class="jumbotron jumbotron-fluid text-center" id="jumbo">
             <div class="container jumbo_text">   
               <h1 class="display-4">PetHome</h1>
@@ -41,6 +31,7 @@
                   <button class="btn" style="background-color: #ff9933;" type="button" id="searchBtn" onclick="displayDog(dogData)">Search</button>
                 </div>
               </div>
+              <a href="adoption.html" class="button btn btnChoice" style="background-color:  #ff9933">Adoption <i class="fas fa-dog"></i></a> <a href="dogfacts.html" class="button btn btnChoice" style="background-color:  #ff9933">Facts <i class="fas fa-paw"></i></a>
             </div>  
           </div>
     </header>
