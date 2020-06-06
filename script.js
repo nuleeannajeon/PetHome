@@ -72,19 +72,20 @@ function displayDogFact(dogfact){
     for (var i=0; i < dogfact.length ; i++){
         var dogName= dogfact[i].name;
         var lowerdogName = dogName.toLowerCase();
+        var picNum
+        var dogPicture
 
 
         if (lowerinputName == lowerdogName) {
-            var picNum = dogfact[i].id;
+            picNum = dogfact[i].id;
             searchPicture(picNum)
             document.querySelector('#dogFact').innerHTML +=
             `
             <div class="row">
                 <div class="col-sm-12 col-md-6">
+                    <img id="dogFactsPic" src="" style="max-height: 400px; width:100%;"/>
                 </div>
-                <div class="col-sm-12 col-md-6">
-                    <img id="dogFactsPic" src=""/>
-
+                <div class="col-sm-12 col-md-6 text-center">
                     ${dogfact[i].name ? `<strong>${dogfact[i].name}</strong>` : ``}
                     ${dogfact[i].breed_group ? `<br>Breed-Group: ${dogfact[i].breed_group}` : ``}
                     ${dogfact[i].origin ? `<br>Origin: ${dogfact[i].origin}` : ``}
