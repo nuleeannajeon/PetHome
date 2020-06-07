@@ -1,4 +1,4 @@
-// PetFinderAPI   ** HELP NEEDED **
+// PetFinderAPI Request
 var pf = new petfinder.Client({
     apiKey: "cb58oTV1HT1nHEGfDGeG9cJSxuW9OYdr4tFtullZNR8RPZDPcd", 
     secret: "XgbRAAfgLmZGVKZE0Gj1GtDZMmqu39LFlNLdBrtA"});
@@ -9,7 +9,7 @@ pf.animal.search({type: "Dog"})
     .then(function(response) {
     dogData = response;
     console.log(dogData);
-    displayDog(dogData);          
+    displayDog(dogData); 
     });
 
 // Displays/Appends PetFinderAPI Results
@@ -22,14 +22,14 @@ function displayDog(dogData) {
         `
         <div class="col-sm-12 col-md-4">
             <div class="card">
-                <img src="${ dogData.data.animals[i].photos.length>0 ? dogData.data.animals[i].photos[0].medium : noImg }" style="height: 400px; width: 100%;"/>
-                <br><strong>Name: ${dogData.data.animals[i].name}</strong>
-                <br>Breed: ${dogData.data.animals[i].breeds.primary}
-                <br>Colors: ${dogData.data.animals[i].colors.primary}
-                <br>Age: ${dogData.data.animals[i].age}
-                <br>Gender: ${dogData.data.animals[i].gender}
-                <br>Description: ${dogData.data.animals[i].description}
-                <br>email: ${dogData.data.animals[i].contact.email} <br>phone: ${dogData.data.animals[i].contact.phone}
+                <img src="${ dogData.data.animals[i].photos.length>0 ? dogData.data.animals[i].photos[0].medium : noImg }" style="height: 350px; width: 100%;"/>
+                ${dogData.data.animals[i].name ? `<br><strong>${dogData.data.animals[i].name}</strong>` : ``}
+                ${dogData.data.animals[i].breeds.primary ? `<br>Breed: ${dogData.data.animals[i].breeds.primary}` : ``}
+                ${dogData.data.animals[i].colors.primary ? `<br>Colors: ${dogData.data.animals[i].colors.primary}` : ``}
+                ${dogData.data.animals[i].age ? `<br>Age: ${dogData.data.animals[i].age}` : ``}
+                ${dogData.data.animals[i].gender ? `<br>Gender: ${dogData.data.animals[i].gender}` : ``}
+                ${dogData.data.animals[i].contact.email ? `<br>Email: ${dogData.data.animals[i].contact.email}` : ``}
+                ${dogData.data.animals[i].contact.phone ? `<br>Phone: ${dogData.data.animals[i].contact.phone}` : ``}
             </div>
         </div>
         `
@@ -85,7 +85,7 @@ function displayDogFact(dogfact){
                 <div class="col-sm-12 col-md-6">
                     <img id="dogFactsPic" src="" style="max-height: 400px; width:100%;"/>
                 </div>
-                <div class="col-sm-12 col-md-6 text-center">
+                <div class="col-sm-12 col-md-6" id="text" style="padding-top: 30px">
                     ${dogfact[i].name ? `<strong>${dogfact[i].name}</strong>` : ``}
                     ${dogfact[i].breed_group ? `<br>Breed-Group: ${dogfact[i].breed_group}` : ``}
                     ${dogfact[i].origin ? `<br>Origin: ${dogfact[i].origin}` : ``}
@@ -101,6 +101,7 @@ function displayDogFact(dogfact){
     }
 }
 
+// Function to find a picture based on ID of dog breed
 async function searchPicture(picNum){
     console.log(`We are searching for your picture`)
     await fetch(`https://api.thedogapi.com/v1/images/search?breed_ids=${picNum}`, requestOptions)

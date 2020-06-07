@@ -6,9 +6,11 @@
     <title>Dog Fact</title>
 
     <!-- Bootstrap CSS -->
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/> 
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
     
     <!-- Local CSS -->
     <link rel="stylesheet" href="style.css" media="screen"/>
@@ -17,30 +19,48 @@
     <header>
         <!-- Our NavBar -->
         <nav class="navbar navbar-expand-md navbar-light text-light" style="background-color: #ff9933">
-            <a class="navbar-brand" href="./main.html"><i class="fas fa-home"></i>PetHome</a>
+            <a class="navbar-brand" href="index.html"><i class="fas fa-home"></i>PetHome</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-          
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="adoption.html">Adoption</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dogfacts.html">Facts</a>
+                    </li>
+                </ul>
+            </div>   
         </nav>
+
         <div class="jumbotron jumbotron-fluid text-center" id="jumbo">
             <div class="container jumbo_text">   
-                <h1 class="display-4">PetHome</h1>
-                <p class="lead">PetHome was designed to allow people from all over the world to connect with loveable pets that they can adopt.</p>
-                <div class="input-group mb-3">
-                    <input id="searchDogFacts" type="text" class="form-control" placeholder="Find Your Pet Now" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                        <button class="btn" style="background-color: #ff9933;" type="button" id="searchBtn" onclick="displayDogFact(dogfact)">Search</button>
+                <h2 class="display-4" style="font-size: 2rem;">Amazing Facts about Dogs</h2>
+                <p class="lead">Find the dog breed that is right for you.</p>
+                <br>
+                <div class="container" style="max-width:450px;">
+                    <div class="input-group mb-3" style="border-radius: 100px;">
+                        <input id="searchDogFacts" type="text" class="form-control" placeholder="Search in breed" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn" style="background-color: #ff9933;" type="button" id="searchBtn" onclick="displayDogFact(dogfact)">Search</button>
+                        </div>
                     </div>
                 </div>
-                <a href="adoption.html" class="button btn btnChoice" style="background-color:  #ff9933">Adoption <i class="fas fa-dog"></i></a> <a href="dogfacts.html" class="button btn btnChoice" style="background-color:  #ff9933">Facts <i class="fas fa-paw"></i></a>
+                <!-- <a href="adoption.html" class="button btn btnChoice" style="background-color:  #ff9933">Adoption <i class="fas fa-dog"></i></a> <a href="dogfacts.html" class="button btn btnChoice" style="background-color:  #ff9933">Facts <i class="fas fa-paw"></i></a> -->
             </div>  
         </div>
     </header>
     <main>
-        <div class="container" id="dogFact">
+        <div class="container" id="dogFact" style="margin-bottom: 150px">
         </div>
     </main>
+
+    <footer>
+        <p>PetHome by Team ™c0dehot ©</p> 
+    </footer>
 
 
     <!-- Bootstrap JS -->
