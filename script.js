@@ -92,11 +92,11 @@ fetch("https://api.thedogapi.com/v1/breeds", requestOptions)
   })
   .catch(error => console.log('error', error));
 
-
 // Display TheDogAPI Search
 function displayDogFact(dogfact){
     var inputName = document.querySelector("#searchDogFacts").value;
     var lowerinputName = inputName.toLowerCase();
+
     
     document.querySelector('#dogFact').innerHTML = "";
 
