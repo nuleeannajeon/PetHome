@@ -69,7 +69,7 @@ footer {
 .card {
     padding: 2rem 1rem;
     margin-bottom: 2rem;
-    height: 90%;
+    height: 98%;
 }
 
 @media (max-width: 768px) {
