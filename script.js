@@ -66,17 +66,22 @@ function displayDogFact(dogfact){
     var lowerinputName = inputName.toLowerCase();
     
     document.querySelector('#dogFact').innerHTML = "";
-
+    
     for (var i=0; i < dogfact.length ; i++){
         var dogName= dogfact[i].name;
         var lowerdogName = dogName.toLowerCase();
+        var picNum
+        var dogPicture
 
         if (lowerinputName == lowerdogName) {
+            picNum = dogfact[i].id;
+            searchPicture(picNum)
+            
             document.querySelector('#dogFact').innerHTML +=
             `
             <div class="col-md-6">
                 <div class="card">
-                
+                    <img id="dogFactsPic" src=""/>
                     ${dogfact[i].name ? `<br>Name: ${dogfact[i].name}` : ``}
                     ${dogfact[i].origin ? `<br>Origin: ${dogfact[i].origin}` : ``}
                     ${dogfact[i].life_span ? `<br>Life-Span: ${dogfact[i].life_span}` : ``}
@@ -87,7 +92,22 @@ function displayDogFact(dogfact){
                 
                 </div>
             </div>
-            `   
+            `
+            
         }
+            
+    
     }
+}
+
+async function searchPicture(picNum){
+    console.log(`We are searching for your picture`)
+    await fetch(`https://api.thedogapi.com/v1/images/search?breed_ids=${picNum}`, requestOptions)
+    .then(response => response.json())
+    .then(function (result){
+    dogPicture = result
+    $("#dogFactsPic").attr("src", dogPicture[0].url)
+    console.log(`We found a picture !`);
+    })
+    .catch(error => console.log('error', error));
 }
