@@ -7,10 +7,11 @@ body {
     position: relative;
     background-color: #f5d3b5;
     width: 100%;
-    height: 500px;
+    height: 300px;
     background:linear-gradient(to bottom, rgba(255, 201, 154,0.4) 0%,rgba(255, 201, 154,0.4) 100%), url(https://thehappypuppysite.com/wp-content/uploads/2019/06/golden-retriever-puppy-growth-long.jpg) repeat 0 0;
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: 100% 30%;
 }
 
 .jumbo_text {
@@ -19,4 +20,11 @@ body {
 
 .btn{
     width:125px;
+}
+
+.btnFacts .btnAdoption {
+    margin-top: 20px;
+}
+.btnFacts {
+    margin-left: 20px;
 }
