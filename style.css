@@ -1,21 +1,87 @@
+html {
+    margin:0; 
+    padding:0; 
+    box-sizing: border-box;
+    height: 100%;
+}
+
 body {
-    background-color: #fff;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    background-color: #ff9933;
+    text-align: center;
+    color: white;
+    font-size: 10px;
+    padding: 2px 0px;
+    margin-bottom: 0; 
+    bottom: 0;
+    margin-top: auto;
+}
+
+.navbar-brand{
+    font-family: 'Shadows Into Light Two', cursive;
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.nav-link {
+    font-family: 'Shadows Into Light Two', cursive;
+}
+
+#title {
+    font-family: 'Shadows Into Light Two', cursive;
 }
 
 #jumbo {
     position: relative;
     background-color: #f5d3b5;
     width: 100%;
-    height: 500px;
-    background:linear-gradient(to bottom, rgba(255, 201, 154,0.4) 0%,rgba(255, 201, 154,0.4) 100%), url(https://thehappypuppysite.com/wp-content/uploads/2019/06/golden-retriever-puppy-growth-long.jpg) repeat 0 0;
+    height: 300px;
+    background:linear-gradient(to bottom, rgba(255, 201, 154,0.7) 0%,rgba(255, 201, 154,0.7) 100%), url(https://thehappypuppysite.com/wp-content/uploads/2019/06/golden-retriever-puppy-growth-long.jpg) repeat 0 0;
     background-size: cover;
+    background-position: 100% 30%;
     background-repeat: no-repeat;
+    background-position: 100% 30%;
 }
 
 .jumbo_text {
     color: black;
+
 }
 
-.btn{
+.btn {
     width:125px;
+}
+
+#searchDogAdopt {
+    border-radius: 30px 0px 0px 30px;
+}
+
+#searchDogFacts {
+    border-radius: 30px 0px 0px 30px;
+}
+
+#searchBtn {
+    border-radius: 0px 30px 30px 0px;
+}
+
+
+.card {
+    padding: 1rem 1rem;
+    margin-bottom: 2rem;
+    height: 98%;
+}
+
+@media (max-width: 768px) {
+    #text {
+        text-align: center;
+    }
+    .jumbo_text {
+        margin-top: 35px;
+    }
 }
