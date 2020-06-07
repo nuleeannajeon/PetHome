@@ -40,13 +40,16 @@
           <div class="jumbotron jumbotron-fluid text-center" id="jumbo">
             <div class="container jumbo_text">   
               <h2 class="display-4" style="font-size: 50px;">Dog Adoption</h2>
-              <p class="lead">Interested in adopting a dog? </br> Here is the latest 20 doggies near you.</p>
-              <!-- <div class="input-group mb-3"> -->
-                <!-- Input to find Adoption by Breed -->
-                <!-- <input id="searchAdoption" type="text" class="form-control" placeholder="Find Your Pet Now" aria-label="Recipient's username" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                  <button class="btn" style="background-color: #ff9933;" type="button" id="searchBtn" onclick="displayDog(dogData)">Search</button>
-                </div> -->
+              <p class="lead">Interested in adopting a dog? </br> Here is the latest doggies waiting for you!</p>
+              <br>
+                <div class="container" style="max-width:450px;">
+                    <div class="input-group mb-3" style="border-radius: 100px;">
+                        <input id="searchDogAdopt" type="text" class="form-control" placeholder="Search in breed" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn" style="background-color: #ff9933;" type="button" id="searchBtn" onclick="main()">Search</button>
+                        </div>
+                    </div>
+                </div>
               </div>
               <!-- <a href="adoption.html" class="button btn btnChoice" style="background-color:  #ff9933">Adoption <i class="fas fa-dog"></i></a> <a href="dogfacts.html" class="button btn btnChoice" style="background-color:  #ff9933">Facts <i class="fas fa-paw"></i></a> -->
             </div>  
@@ -54,14 +57,14 @@
     </header>
     <main>
           <div class="container text-center" style="margin-bottom: 150px">
-            <div class="row" id="dogBox" >
+            <div class="row" id="dogBox">
             </div>
           </div>
     </main>
 
     <footer>
       <p>PetHome by Team ™c0dehot ©</p> 
-  </footer>
+    </footer>
     
 
 
