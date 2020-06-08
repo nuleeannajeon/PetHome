@@ -43,6 +43,7 @@ async function main(){
         'https://img0.etsystatic.com/183/0/13221305/il_570xN.1214786404_1lgc.jpg' :
         (animal.primary_photo_cropped.length ? animal.primary_photo_cropped[0].small : animal.primary_photo_cropped.small)
         
+        var noImg ="https://www.stma.org/wp-content/uploads/2017/10/no-image-icon.png";
       document.querySelector('#dogBox').innerHTML += `
         <div class="col-sm-12 col-md-4">
             <div class="card">
