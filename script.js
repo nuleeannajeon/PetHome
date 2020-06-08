@@ -38,7 +38,7 @@ async function main(){
     
     let dogIdx = (page-1)*100;
     apiResult.data.animals.forEach( function( animal ){
-      console.log( ` -- ${++dogIdx}: ${animal.name} id: ${animal.id} url: ${animal.url}` )
+      console.log( ` -- ${+dogIdx}: ${animal.name} id: ${animal.id} url: ${animal.url}` )
       const dogPhoto = !animal.primary_photo_cropped ? 
         'https://img0.etsystatic.com/183/0/13221305/il_570xN.1214786404_1lgc.jpg' :
         (animal.primary_photo_cropped.length ? animal.primary_photo_cropped[0].small : animal.primary_photo_cropped.small)
@@ -57,7 +57,7 @@ async function main(){
                 <br>
                 <br>
                 <div class="container">
-                    <a href="${animal.url}" class="btn btn-outline-secondary">See ${apiResult.data.animals[dogIdx].name}</a>
+                <a href="${animal.url}" class="btn btn-outline-secondary">See ${apiResult.data.animals[dogIdx].name}</a>
                 </div>
             </div>
         </div>
@@ -68,6 +68,7 @@ async function main(){
 
   } while( apiResult.data.pagination && apiResult.data.pagination.total_pages >= page )
 }
+
 
 // TheDogAPI Request
 var dogfact
