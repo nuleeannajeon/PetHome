@@ -38,7 +38,7 @@ async function main(){
     
     let dogIdx = (page-1)*100;
     apiResult.data.animals.forEach( function( animal ){
-      console.log( ` -- ${+dogIdx}: ${animal.name} id: ${animal.id} url: ${animal.url}` )
+      console.log( ` -- ${++dogIdx}: ${animal.name} id: ${animal.id} url: ${animal.url}` )
       const dogPhoto = !animal.primary_photo_cropped ? 
         'https://img0.etsystatic.com/183/0/13221305/il_570xN.1214786404_1lgc.jpg' :
         (animal.primary_photo_cropped.length ? animal.primary_photo_cropped[0].small : animal.primary_photo_cropped.small)
@@ -46,18 +46,18 @@ async function main(){
       document.querySelector('#dogBox').innerHTML += `
         <div class="col-sm-12 col-md-4">
             <div class="card">
-                <img src="${ apiResult.data.animals[dogIdx].photos.length>0 ? apiResult.data.animals[dogIdx].photos[0].medium : noImg }" style="height: 350px; width: 100%;"/>
-                ${apiResult.data.animals[dogIdx].name ? `<br><div style="background-color: #ff9933; padding: 5px 0px"><strong>${apiResult.data.animals[dogIdx].name}</strong></div>` : ``}
-                ${apiResult.data.animals[dogIdx].breeds.primary ? `<br>Breed: ${apiResult.data.animals[dogIdx].breeds.primary}` : ``}
-                ${apiResult.data.animals[dogIdx].colors.primary ? `<br>Colors: ${apiResult.data.animals[dogIdx].colors.primary}` : ``}
-                ${apiResult.data.animals[dogIdx].age ? `<br>Age: ${apiResult.data.animals[dogIdx].age}` : ``}
-                ${apiResult.data.animals[dogIdx].gender ? `<br>Gender: ${apiResult.data.animals[dogIdx].gender}` : ``}
-                ${apiResult.data.animals[dogIdx].contact.email ? `<br>Email: ${apiResult.data.animals[dogIdx].contact.email}` : ``}
-                ${apiResult.data.animals[dogIdx].contact.phone ? `<br>Phone: ${apiResult.data.animals[dogIdx].contact.phone}` : ``}
+                <img src="${ animal.photos.length>0 ? animal.photos[0].medium : noImg }" style="height: 350px; width: 100%;"/>
+                ${animal.name ? `<br><div style="background-color: #ff9933; padding: 5px 0px"><strong>${animal.name}</strong></div>` : ``}
+                ${animal.breeds.primary ? `<br>Breed: ${animal.breeds.primary}` : ``}
+                ${animal.colors.primary ? `<br>Colors: ${animal.colors.primary}` : ``}
+                ${animal.age ? `<br>Age: ${animal.age}` : ``}
+                ${animal.gender ? `<br>Gender: ${animal.gender}` : ``}
+                ${animal.contact.email ? `<br>Email: ${animal.contact.email}` : ``}
+                ${animal.contact.phone ? `<br>Phone: ${animal.contact.phone}` : ``}
                 <br>
                 <br>
                 <div class="container">
-                <a href="${animal.url}" class="btn btn-outline-secondary">See ${apiResult.data.animals[dogIdx].name}</a>
+                <a href="${animal.url}" class="btn btn-outline-secondary">See ${animal.name}</a>
                 </div>
             </div>
         </div>
